@@ -4,8 +4,14 @@ from __future__ import annotations
 
 from datetime import date
 
+from core.config import get_settings
 from core.schema import ClientProfile, InsightCard
 from core.synth import build_debrief, historical_delta, new_developments
+
+# Tests assert on structure, not model prose. Pin to mock so they stay fast,
+# deterministic, and free regardless of what is in .env.
+get_settings().provider = "mock"
+get_settings().api_key = ""
 
 
 def card(**kw) -> InsightCard:

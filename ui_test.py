@@ -12,7 +12,11 @@ from datetime import date
 from streamlit.testing.v1 import AppTest
 
 from core import store
+from core.config import get_settings
 from core.knowledge import seed_demo_knowledge
+
+get_settings().provider = "mock"
+get_settings().api_key = ""
 from core.mockdata import _CARDS, historical_cards
 from core.schema import CardStatus, ClientProfile, Evidence, InsightCard, SourceType
 

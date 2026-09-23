@@ -6,7 +6,11 @@ import io
 from datetime import date
 
 from core import store
+from core.config import get_settings
 from core.knowledge import chunks_from_file, seed_demo_knowledge
+
+get_settings().provider = "mock"
+get_settings().api_key = ""
 from core.schema import ClientProfile, InsightCard, KnowledgeCategory
 from core.synth import answer_question, build_debrief
 

@@ -8,7 +8,11 @@ from __future__ import annotations
 from datetime import date
 
 from core import store
+from core.config import get_settings
 from core.docx_out import build_docx, build_email
+
+get_settings().provider = "mock"
+get_settings().api_key = ""
 from core.extract import extract_cards
 from core.ingest import ingest
 from core.schema import CardStatus, ClientProfile
